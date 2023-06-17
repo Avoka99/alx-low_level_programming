@@ -20,7 +20,7 @@ int main(void)
 		if (n < 0)
 		{
 			lastdigit *= -1;
-			printf("-%d ", lastdigit);
+			printf("%d ", lastdigit);
 		}
 		else
 		{

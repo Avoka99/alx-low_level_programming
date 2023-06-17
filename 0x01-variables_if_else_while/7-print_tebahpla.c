@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	char aplha;
+	char alpha;
 
 	for (alpha = 'z'; alpha >= 'a'; alpha--)
 	{

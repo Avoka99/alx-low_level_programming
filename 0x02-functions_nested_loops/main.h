@@ -3,4 +3,8 @@
 
 void print_putchar(void);
 
+void print_alphabet(void);
+
+int _putchar(char c);
+
 #endif

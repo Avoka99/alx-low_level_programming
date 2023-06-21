@@ -10,7 +10,7 @@
 int main(void)
 {
 	int i;
-	unsigned long f1, f2, f_next;
+	unsigned long f1 = 1, f2 = 2, f_next;
 
 	printf("%lu, %lu", f1, f2);
 

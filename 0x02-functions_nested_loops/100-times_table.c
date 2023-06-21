@@ -9,9 +9,9 @@ void print_times_table(int n)
 	int a, b;
 
 	if (n < 0 || n > 15)
-	{
+
 		return;
-	}
+
 
 	for (a = 0; a <= 15; a++)
 	{
@@ -22,11 +22,11 @@ void print_times_table(int n)
 
 			if (b == 0)
 
-				printf("%d", result);
+				printf("%2d", result);
 
 			else
 
-				printf(", %d", result);
+				printf(", %2d", result);
 
 		}
 		printf("\n");

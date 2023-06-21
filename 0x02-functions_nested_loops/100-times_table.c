@@ -22,7 +22,7 @@ void print_times_table(int n)
 
 			if (b == 0)
 			{
-				printf("%2d", result);
+				printf("%d", result);
 			}
 			else
 			{

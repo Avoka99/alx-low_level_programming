@@ -17,7 +17,7 @@ void times_table(void)
 				printf("%2d", result);
 			else
 
-				printf(",%2d", result);
+				printf(", %2d", result);
 		}
 		printf("\n");
 	}

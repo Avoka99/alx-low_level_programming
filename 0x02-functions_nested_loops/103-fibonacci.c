@@ -10,7 +10,7 @@
  */
 int main(void)
 {
-	unsigned long f1 = 1, f2 = 2, f_next, sum = 2;
+	unsigned long f1 = 1, f2 = 2, f_next = f2, sum = 2;
 
 	while (f_next <= 4000000)
 	{

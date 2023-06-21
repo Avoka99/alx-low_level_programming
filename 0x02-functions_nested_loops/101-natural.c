@@ -22,7 +22,7 @@ int main(void)
 		}
 	}
 
-	printf("sum of all multiples: %d\n", limit, sum);
+	printf("%d\n", limit, sum);
 
 	return (0);
 }

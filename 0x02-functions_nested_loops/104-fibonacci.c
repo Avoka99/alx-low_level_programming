@@ -9,14 +9,15 @@
  */
 int main(void)
 {
-	int count, num1 = 0, num2 = 1, temp;
+	int count
+	unsigned long long num1 = 0, num2 = 1, temp;
 
-	printf("%d, %d", num1, num2);
+	printf("%llu, %llu", num1, num2);
 
 	for (count = 3; count <= 98; count++)
 	{
 		temp = num1 + num2;
-		printf(", %d", temp);
+		printf(", %llu", temp);
 		num1 = num2;
 		num2 = temp;
 	}

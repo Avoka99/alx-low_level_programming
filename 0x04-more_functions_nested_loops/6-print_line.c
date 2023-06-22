@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * print_line - draws a line on the terminer
+ * print_line - draws a line on the terminal
  * @n: the number of times '_' can be printed
  */
 void print_line(int n)

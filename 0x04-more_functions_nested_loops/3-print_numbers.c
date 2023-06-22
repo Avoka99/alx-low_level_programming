@@ -3,7 +3,6 @@
 
 /**
  * print_numbers - prints numbers from 0 to 9
- *
  */
 void print_numbers(void)
 {
@@ -12,7 +11,7 @@ void print_numbers(void)
 	for (num = 0; num <= 9; num++)
 	{
 
-		_putchar("%d ", num);
+		_putchar(num + '0 ');
 
 	}
 	_putchar('\n');

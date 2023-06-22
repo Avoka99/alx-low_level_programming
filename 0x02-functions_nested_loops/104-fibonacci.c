@@ -11,7 +11,7 @@ int main(void)
 {
 	int count;
 
-	unsigned long num1 = 0, num2 = 1, temp;
+	unsigned long num1 = 1, num2 = 2, temp;
 
 	printf("%lu, %lu", num1, num2);
 

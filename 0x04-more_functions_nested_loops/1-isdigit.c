@@ -3,9 +3,9 @@
 
 /**
  * _isdigit - checks if character is a digit
- * @: character to be check
+ * @c: character to be check
  *
- * return: 1 if c is digit, 0 otherwise
+ * Return: 1 if c is digit, 0 otherwise
  */
 int _isdigit(int c)
 {

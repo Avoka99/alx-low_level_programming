@@ -11,14 +11,14 @@ int main(void)
 {
 	int count;
 
-	unsigned long long num1 = 0, num2 = 1, temp;
+	unsigned long num1 = 0, num2 = 1, temp;
 
-	printf("%llu, %llu", num1, num2);
+	printf("%lu, %lu", num1, num2);
 
 	for (count = 3; count <= 98; count++)
 	{
 		temp = num1 + num2;
-		printf(", %llu", temp);
+		printf(", %lu", temp);
 		num1 = num2;
 		num2 = temp;
 	}

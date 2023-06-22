@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * print_numbers - prints numbers from 0 to 9
+ * print_numbers - prints numbers from 0 to 9 follow by a new line
  *
  * Return: void
  */

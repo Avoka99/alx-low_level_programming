@@ -2,7 +2,6 @@
 
 /**
  * main - Entry point
- * fizz_buzz - prints fizz buzz on the multiples of 3 and 5
  *
  * Return: Always 0 Success
  */
@@ -18,7 +17,7 @@ int main(void)
 		}
 		else if ((i % 3) == 0)
 		{
-			pirntf("Fizz");
+			printf("Fizz");
 		}
 		else if ((i % 5) == 0)
 		{

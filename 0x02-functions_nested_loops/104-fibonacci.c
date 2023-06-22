@@ -9,7 +9,8 @@
  */
 int main(void)
 {
-	int count
+	int count;
+
 	unsigned long long num1 = 0, num2 = 1, temp;
 
 	printf("%llu, %llu", num1, num2);

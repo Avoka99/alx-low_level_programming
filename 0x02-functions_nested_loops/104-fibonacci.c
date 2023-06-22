@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	int count, num1 = 1, num2 = 2, temp;
+	int count, num1 = 0, num2 = 1, temp;
 
 	printf("%d, %d", num1, num2);
 

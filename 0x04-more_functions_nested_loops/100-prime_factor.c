@@ -35,5 +35,5 @@ int main(void)
 
 	printf("%ld\n", largest);
 
-	return 0;
+	return (0);
 }

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
  * print_array - prints arrays in n numbers
@@ -10,7 +11,10 @@ void print_array(int *a, int n)
 	int i;
 
 	if (a == NULL || n <= 0)
+	{
+		printf("Invalid input\n");
 		return;
+	}
 
 	for (i = 0; i < n; i++)
 	{

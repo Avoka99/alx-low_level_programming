@@ -18,7 +18,7 @@ int main(void)
 	for (count = 3; count <= 98; count++)
 	{
 		temp = num1 + num2;
-		printf(", %3lu", temp);
+		printf(", %lu", temp);
 		num1 = num2;
 		num2 = temp;
 	}

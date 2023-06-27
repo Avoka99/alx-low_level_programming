@@ -1,7 +1,8 @@
 #include "main.h"
+#include <ctype.h>
 
 /**
- * atoi - converts strings to integer
+ * _atoi - converts strings to integer
  * @s: string value
  *
  * Return: The converted value

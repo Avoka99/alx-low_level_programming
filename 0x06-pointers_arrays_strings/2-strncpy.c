@@ -5,10 +5,12 @@
  * @dest: first string
  * @src: second string
  * @n: an integer value
+ *
+ * Return: dest
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int i =0;
+	int i = 0;
 
 	while (i < n && src[i] != '\0')
 	{

@@ -9,7 +9,7 @@
  */
 void print_buffer(char *b, int size)
 {
-	int q,j,i;
+	int q, j, i;
 
 	q = 0;
 
@@ -26,7 +26,7 @@ void print_buffer(char *b, int size)
 		{
 			if (i < j)
 				printf("%02x", *(b + q + i));
-			else 
+			else
 				printf(" ");
 			if (i % 2)
 			{
@@ -36,6 +36,7 @@ void print_buffer(char *b, int size)
 		for (i = 0; i < j; i++)
 		{
 			int c = *(b + q + i);
+
 			if (c < 32 || c > 132)
 			{
 				c = '.';

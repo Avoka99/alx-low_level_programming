@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * *cerate_array - creates an array of chars
+ * create_array - creates an array of chars
  * @size: the sizes of chars
  * @c: number of chars
  *
@@ -22,5 +22,5 @@ char *create_array(unsigned int size, char c)
 
 	for (i = 0; i < size; i++)
 		array[i] = c;
-	return(array);
+	return (array);
 }

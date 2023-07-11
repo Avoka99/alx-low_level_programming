@@ -125,6 +125,8 @@ char *extract_word(char *str)
 
 void free_words(char **words)
 {
+	int index;
+
 	if (words == NULL)
 		return;
 

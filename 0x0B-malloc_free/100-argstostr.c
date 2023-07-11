@@ -38,6 +38,7 @@ char *argstostr(int ac, char **av)
 		if (i != ac - 1)
 			results[p++] = '\n';
 	}
+	results[p++] = '\n';
 	results[p] = '\0';
 	return (results);
 }

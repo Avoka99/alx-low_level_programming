@@ -30,8 +30,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (conc == NULL)
 		return (NULL);
 
-	strcpy(conc, s1, len1);
-	strcpy(conc + len1, s2, n);
+	strncpy(conc, s1, len1);
+	strncpy(conc + len1, s2, n);
 	conc[len1 + n] = '\0';
 
 	return (conc);

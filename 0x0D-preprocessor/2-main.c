@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "main.h"
-#include <stdio.h>
 
 /**
  * main - Entry point

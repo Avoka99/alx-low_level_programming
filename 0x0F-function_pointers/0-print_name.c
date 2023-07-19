@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 #include "main.h"
 
 /**
@@ -22,14 +23,13 @@ void print_name(char *name, void (*f)(char *))
  */
 void print_uppercase(char *name)
 {
-	int i;
+	size_t i;
 
 	if (name != NULL)
 	{
 		for (i = 0; name[i] != '\0'; i++)
 		{
 			_putchar(toupper(name[i]));
-			_putchar('\n');
 		}
 	}
 }
@@ -41,14 +41,13 @@ void print_uppercase(char *name)
  */
 void print_lowercase(char *name)
 {
-	int i;
+	size_t i;
 
 	if (name != NULL)
 	{
 		for (i = 0; name[i] != '\0'; i++)
 		{
 			_putchar(tolower(name[i]));
-			_putchar('\n');
 		}
 	}
 }

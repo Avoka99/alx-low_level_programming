@@ -9,8 +9,6 @@ void print_name(char *name, void (*f)(char *));
 
 int _putchar(char c);
 
-void print_uppercase(char *name);
-
-void print_lowercase(char *name);
+void array_iterator(int *array, size_t size, void (*action)(int));
 
 #endif

@@ -34,21 +34,21 @@ void print_uppercase(char *name)
 	}
 }
 /**
- * print_lowercase - prints name in uppercase letters
+ * print_lowercase - prints name in lowercase letters
  * @name: Name pointer
  *
  * Return: void
  */
-void print_uppercase(char *name)
+void print_lowercase(char *name)
 {
-        int i;
+	int i;
 
-        if (name != NULL)
-        {
-                for (i = 0; name[i] != '\0'; i++)
-                {
-                        _putchar(toupper(name[i]));
-                        _putchar('\n');
-                }
-        }
+	if (name != NULL)
+	{
+		for (i = 0; name[i] != '\0'; i++)
+		{
+			_putchar(tolower(name[i]));
+			_putchar('\n');
+		}
+	}
 }

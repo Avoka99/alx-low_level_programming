@@ -13,7 +13,6 @@ void print_all(const char * const format, ...)
 	char *str;
 	int i = 0;
 	char c;
-	float f;
 
 	va_start(args, format);
 

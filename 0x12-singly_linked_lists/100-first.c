@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "lists.h"
 
+void my_function(void) __attribute__((constructor));
+
 /**
  * my_function - Function to be executed before main.
  */

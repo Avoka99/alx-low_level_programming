@@ -13,7 +13,7 @@ size_t print_listint_safe(const listint_t *head)
 {
     const listint_t *current = head;
     size_t count = 0;
-    const listint_t *visited[1024]; // Max size of the set
+    const listint_t *visited[1024];
 
     while (current)
     {

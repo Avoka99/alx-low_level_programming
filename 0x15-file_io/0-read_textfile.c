@@ -12,21 +12,25 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
+	FILE *file;
+	char *buffer;
+	ssize_t bytes_read;
+
 	if (filename == NULL)
 		return (0);
 
-	FILE *file = fopen(filename, "r");
+	file = fopen(filename, "r");
 	if (file == NULL)
 		return (0);
 
-	char *buffer = malloc(letters + 1);
+	buffer = malloc(letters + 1);
 	if (buffer == NULL)
 	{
 		fclose(file);
 		return (0);
 	}
 
-	ssize_t bytes_read = fread(buffer, 1, letters, file);
+	bytes_read = fread(buffer, 1, letters, file);
 	if (bytes_read <= 0)
 	{
 		fclose(file);

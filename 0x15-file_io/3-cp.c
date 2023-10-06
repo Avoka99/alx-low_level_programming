@@ -16,7 +16,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to, rd_result, wr_result;
+	int fd_from, fd_to, wr_result;
 	char buffer[BUFFER_SIZE];
 	ssize_t bytes_read;
 
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 		close(fd_from);
 		return (99);
 	}
-	hile ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
+	while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
 	{
 		wr_result = write(fd_to, buffer, bytes_read);
 		if (wr_result == -1)

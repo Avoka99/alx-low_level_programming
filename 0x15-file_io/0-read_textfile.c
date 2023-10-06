@@ -1,16 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <elf.h>
 #include "main.h"
 
-ssize_t read_textfile(const char *filename, size_t letters);
-
-/*
+/**
  * read_textfile - Reads and prints a text file to the POSIX standard output.
  * @filename: The name of the file to read.
  * @letters: The number of letters to read and print.
  *
- * Return: The actual number of letters read and printed.
+ * Return: The actual number of letters read and printed, or 0 on failure.
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
@@ -31,22 +30,23 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		fclose(file);
 		return (0);
 	}
-}
 
-bytes_read = fread(buffer, 1, letters, file);
-if (bytes_read <= 0)
-{
+	bytes_read = fread(buffer, 1, letters, file);
+	if (bytes_read <= 0)
+	{
+		fclose(file);
+		free(buffer);
+		return (0);
+	}
+
+	bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
+
 	fclose(file);
 	free(buffer);
-	return (0);
+
+	if (bytes_written != bytes_read)
+		return (0);
+
+	return (bytes_written);
 }
 
-bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
-
-fclose(file);
-free(buffer);
-if (bytes_written != bytes_read)
-	return (0);
-
-	return (bytes_read);
-	}

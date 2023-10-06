@@ -197,8 +197,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 			printf("CORE (Core file)\n");
 			break;
 		default:
-			printf("Unknown type\n");
-			break;
+			printf("<unknown: %x>\n", e_type);
 	}
 }
 
@@ -225,49 +224,45 @@ void close_elf(int elf)
 
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	const char *elf_filename = argv[1];
-	int elf = open(elf_filename, O_RDONLY);
-	unsigned char e_ident[EI_NIDENT];
-	ssize_t read_bytes = read(elf, e_ident, EI_NIDENT);
-	Elf64_Ehdr elf_header;
+	int elf, i;
+	Elf64_Ehdr *elf_header;
 
-	if (argc != 2)
-	{
-		print_error_and_exit(98, "Usage: elf_header elf_filename\n", "");
-	}
+	elf = open(argv[1], O_RDONLY);
 
 	if (elf == -1)
 	{
-		print_error_and_exit(98, "Error: Can't open file %s\n", elf_filename);
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		exit(98);
 	}
 
-	if (read_bytes != EI_NIDENT)
+	elf_header = malloc(sizeof(Elf64_Ehdr));
+	if (elf_header == NULL)
 	{
-		print_error_and_exit(98, "Error: Can't read from file %s\n", elf_filename);
+		close_elf(elf);
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		exit(98);
 	}
-
-	check_elf(e_ident);
-
-	if (lseek(elf, 0, SEEK_SET) == -1)
+	i = read(elf, elf_header, sizeof(Elf64_Ehdr));
+	if (i == -1)
 	{
-		print_error_and_exit(98, "Error: Can't seek in file %s\n", elf_filename);
-	}
-	read_bytes = read(elf, &elf_header, sizeof(Elf64_Ehdr));
-
-	if (read_bytes != sizeof(Elf64_Ehdr))
-	{
-		print_error_and_exit(98, "Error: Can't read from file %s\n", elf_filename);
+		free(elf_header);
+		close_elf(elf);
+		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
+		exit(98);
 	}
 
-	print_magic(e_ident);
-	print_class(e_ident);
-	print_data(e_ident);
-	print_version(e_ident);
-	print_abi(e_ident);
-	print_osabi(e_ident);
-	print_type(elf_header.e_type, e_ident);
-	print_entry(elf_header.e_entry, e_ident);
+	check_elf(elf_header->e_ident);
+	printf("ELF Header:\n");
+	print_magic(elf_header->e_ident);
+	print_class(elf_header->e_ident);
+	print_data(elf_header->e_ident);
+	print_version(elf_header->e_ident);
+	print_abi(elf_header->e_ident);
+	print_osabi(elf_header->e_ident);
+	print_type(elf_header->e_type, elf_header->e_ident);
+	print_entry(elf_header->e_entry, elf_header->e_ident);
 
+	free(elf_header);
 	close_elf(elf);
 
 	return (0);

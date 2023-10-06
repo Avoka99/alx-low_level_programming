@@ -24,9 +24,13 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (file == NULL)
 		return (-1);
 
-	result = fputs(text_content, file);
+	if (fputs(text_content, file) == EOF)
+	{
+		fclose(file);
+		return (-1);
+	}
 
 	fclose(file);
 
-	return (result == EOF) ? -1 : 1;
+	return (1);
 }

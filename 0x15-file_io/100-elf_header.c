@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
 {
 	int fd;
 	ssize_t bytes_read;
+	Elf64_Ehdr header;
 
 	if (argc != 2)
 	{
@@ -51,7 +52,6 @@ int main(int argc, char *argv[])
 		return (98);
 	}
 
-	Elf64_Ehdr header;
 	bytes_read = read(fd, &header, sizeof(header));
 
 	if (bytes_read == -1 || bytes_read != sizeof(header))

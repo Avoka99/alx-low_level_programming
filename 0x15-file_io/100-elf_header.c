@@ -85,10 +85,17 @@ void print_error_and_exit(int code, const char *message, const char *arg)
 
 void check_elf(unsigned char *e_ident)
 {
-	if (e_ident[EI_MAG0] != ELFMAG0 || e_ident[EI_MAG1] != ELFMAG1 ||
-			e_ident[EI_MAG2] != ELFMAG2 || e_ident[EI_MAG3] != ELFMAG3)
+	int ind;
+
+	for (ind = 0; ind < 4; ind++)
 	{
-		print_error_and_exit(98, "Error: Not an ELF file\n", "");
+		if (e_ident[ind] != 127 &&
+				e_ident[ind] != 'E' &&
+				e_ident[ind] != 'L' &&
+				e_ident[ind] != 'F')
+		{
+			print_error_and_exit(98, "Error: Not an ELF file\n", "");
+		}
 	}
 }
 

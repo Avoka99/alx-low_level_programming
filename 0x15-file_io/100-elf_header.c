@@ -129,7 +129,7 @@ void print_class(unsigned char *e_ident)
 			printf("ELF64\n");
 			break;
 		default:
-			printf("Invalid class\n" e_ident[EI_CLASS]);
+			printf("<unknown: %x>\n", e_ident[EI_CLASS]);
 	}
 }
 
@@ -148,7 +148,7 @@ void print_data(unsigned char *e_ident)
 			printf("2's complement, big-endian\n");
 			break;
 		default:
-			printf("Invalid data encoding\n" e_ident[EI_CLASS]);
+			printf("<unknown: %x>\n", e_ident[EI_CLASS]);
 	}
 }
 
@@ -160,7 +160,7 @@ void print_version(unsigned char *e_ident)
 	case EV_CURRENT:
 		printf(" (current)\n");
 		break;
-	default;
+	default:
 		printf("\n");
 		break;
 	}
@@ -173,9 +173,6 @@ void print_osabi(unsigned char *e_ident)
 	{
 		case ELFOSABI_NONE:
 			printf("UNIX - System V\n");
-			break;
-		case ELFOSABI_SYSV:
-			printf("UNIX System V ABI\n");
 			break;
 		case ELFOSABI_HPUX:
 			printf("HP-UX ABI\n");
@@ -205,7 +202,7 @@ void print_osabi(unsigned char *e_ident)
 			printf("Standalone App\n");
 			break;
 		default:
-			printf("Other ABI\n" e_ident[EI_OSABI]);
+			printf("<unknown: %x>\n", e_ident[EI_OSABI]);
 	}
 }
 

@@ -1,1 +1,1 @@
-Bitwise operation readme
+Bitwise operations readme

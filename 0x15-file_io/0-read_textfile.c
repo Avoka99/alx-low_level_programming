@@ -18,12 +18,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	ssize_t bytes_read, bytes_written;
 
 	if (filename == NULL)
+	{
 		return (0);
-
+	}
 	file = fopen(filename, "r");
 	if (file == NULL)
+	{
 		return (0);
-
+	}
 	buffer = malloc(letters);
 	if (buffer == NULL)
 	{
@@ -45,8 +47,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	free(buffer);
 
 	if (bytes_written != bytes_read)
+	{
 		return (0);
-
+	}
 	return (bytes_written);
 }
 

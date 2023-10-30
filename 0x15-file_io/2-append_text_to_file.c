@@ -14,23 +14,22 @@
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
-	FILE *file;
+	int file;
+	int wrt, len = 0;
 
 	if (filename == NULL)
 		return (-1);
-	if (text_content == NULL)
-		return (-1);
-	file = fopen(filename, "a");
-	if (file == NULL)
-		return (-1);
-
-	if (fputs(text_content, file) == EOF)
+	if (text_content != NULL)
 	{
-		fclose(file);
-		return (-1);
+		for (len = 0; text_content[len];)
+			len++;
 	}
+	file = open(filename, O_WRONLY | O_APPEND);
+	wrt = write(file, text_content, len);
+	if (file == -1 || wrt == -1)
+		return (-1);
 
-	fclose(file);
+	close(file);
 
 	return (1);
 }

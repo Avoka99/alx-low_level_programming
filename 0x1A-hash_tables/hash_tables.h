@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
+#include <strings.h>
 /**
  * struct hash_node_s - Node of a hash table
  * @key: The key, string
@@ -35,5 +35,6 @@ typedef struct hash_table_s
 /* Function prototypes */
 hash_table_t *hash_table_create(unsigned long int size);
 unsigned long int hash_djb2(const unsigned char *str);
+unsigned long int key_index(const unsigned char *key, unsigned long int size);
 
 #endif /* HASH_TABLES_H */
